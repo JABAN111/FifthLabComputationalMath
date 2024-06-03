@@ -1,12 +1,16 @@
 package Computational.math.Methods;
 
+import Computational.math.Utils.FunctionalTable;
+
 public class LagrangeMethod extends AbstractMethod{
     public LagrangeMethod() {
         super("Полином Лагранжа");
     }
 
     @Override
-    public Double apply(Double[] xArr, Double[] yArr, double x_current) {
+    public Double apply(FunctionalTable functionalTable, double x_current) {
+        var xArr = functionalTable.getxArr();
+        var yArr = functionalTable.getyArr();
         double res = 0d;
         for (int i = 0; i < xArr.length; i++) {
             var p = 1d;
