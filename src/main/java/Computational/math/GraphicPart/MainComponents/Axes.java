@@ -2,15 +2,17 @@ package Computational.math.GraphicPart.MainComponents;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Line2D;
 
 public class Axes extends JComponent {
-    public static final int NUM_TICKS_X = 50;
-    private static final int NUM_TICKS_Y = 50;
+    //fixme первые два это наш зум//дефолт 50
+    private static int getNumTicksX;
+    private static int NUM_TICKS_Y;
     private static final int TICK_LENGTH = 5;
-//    public Axes(){
-//        setPreferredSize(new Dimension(1000,1000));
-//    }
+    public Axes(int NUM_TICKS_X,int NUM_TICKS_Y){
+        this.getNumTicksX =NUM_TICKS_X;
+        this.NUM_TICKS_Y = NUM_TICKS_Y;
+        setPreferredSize(new Dimension(1000,1000));
+    }
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D gr = (Graphics2D) g;
@@ -27,17 +29,17 @@ public class Axes extends JComponent {
 
 
 
-        int xTickSpacing = getWidth() / NUM_TICKS_X;
+        int xTickSpacing = getWidth() / getNumTicksX;
 
         //positive ticks
-        for (int i = 0; i < NUM_TICKS_X/2; i++){
+        for (int i = 0; i < getNumTicksX /2; i++){
             int xTick = centerX+i*xTickSpacing;
             gr.drawLine(xTick, centerY - TICK_LENGTH / 2, xTick, centerY + TICK_LENGTH / 2);
             if(i != 0)
                 gr.drawString(""+i,xTick, centerY - TICK_LENGTH / 2);
         }
         //negative ticks
-        for (int i = 0; i < NUM_TICKS_X/2; i++) {
+        for (int i = 0; i < getNumTicksX /2; i++) {
             int negXTick = centerX - i * xTickSpacing;
             gr.drawLine(negXTick, centerY - TICK_LENGTH / 2, negXTick, centerY + TICK_LENGTH / 2);
             if(i != 0)
@@ -62,4 +64,7 @@ public class Axes extends JComponent {
         }
     }
 
+    public static int getNumTicksX() {
+        return getNumTicksX;
+    }
 }

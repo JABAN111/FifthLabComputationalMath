@@ -5,8 +5,6 @@ import org.netirc.library.jtables.exception.MalformedTableException;
 import org.netirc.library.jtables.table.MonospaceTable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class FunctionalTable {
     private Double[] xArr;
@@ -62,6 +60,11 @@ public class FunctionalTable {
         }catch (MalformedTableException e){
             System.err.println("Can't create table for printing: " + e.getMessage());
         }
+    }
+    public int dimension(){
+        if(xArr.length != yArr.length)
+            throw new RuntimeException("Это баг :D");
+        return xArr.length;
     }
     public Double[] getxArr() {
         return xArr;

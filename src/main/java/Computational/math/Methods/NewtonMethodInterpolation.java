@@ -22,10 +22,9 @@ public class NewtonMethodInterpolation extends AbstractMethod{
                     break;
                 }
             }
-            //fixme вернуть
-//            if (!isEquallySpaced) {
-//                return Double.NaN; // Узлы не являются равноотстоящими
-//            }
+            if (!isEquallySpaced) {
+                return Double.NaN; // Узлы не являются равноотстоящими
+            }
             double[][] a = new double[n][n];
             for (int i = 0; i < n; i++) {
                 a[i][0] = y[i];

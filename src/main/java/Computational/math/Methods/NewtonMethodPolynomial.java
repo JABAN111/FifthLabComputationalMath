@@ -16,7 +16,8 @@ public class NewtonMethodPolynomial extends AbstractMethod{
         var n = functionalTable.getxArr().length - 1;
         var p = a[n];
         for (int k = 1; k < n+1; k++) {
-            p=a[n - k] + (x_current - x[n - k])*p;
+            p = a[n - k] + (x_current - x[n - k])*p;
+
         }
         return p;
     }

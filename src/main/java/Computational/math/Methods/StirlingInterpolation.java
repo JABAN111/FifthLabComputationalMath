@@ -42,7 +42,8 @@ public class StirlingInterpolation extends AbstractMethod{
         double compT1 = t;
         double compT2 = t * t;
         int prNumber = 0;
-        for (int i = 1; i < n; i++) {
+        //todo это точно до -1?
+        for (int i = 1; i < n-1; i++) {
             if (i % 2 == 0) {
                 result += (compT2 / factorial(i)) * a[x0 - (i / 2)][i];
                 compT2 *= (t * t - prNumber * prNumber);
