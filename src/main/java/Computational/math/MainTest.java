@@ -29,7 +29,10 @@ public class MainTest {
                 throw new RuntimeException("ААА, УЗЛЫ НЕ РАВНОСТОЯЩИЕ");
             }
         }
+        f.printTable();
+        System.out.println("nm.apply(f,2.761) = " + nm.apply(f, 2.761));
         functionalTableByNewton = new FunctionalTable(xNewton,yNewton);
+
         MainFrame.drawInterpolation("some useful data",f,functionalTableByNewton,30,30);
     }
 }

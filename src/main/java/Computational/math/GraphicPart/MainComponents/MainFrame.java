@@ -77,7 +77,7 @@ public class MainFrame extends JFrame {
         EventQueue.invokeLater(()->{
             MainFrame frame = MainFrame.getFrame(methodName);
             // Создаем Axes и SystemFunctionPainterComponent
-            Axes axes = new Axes(numXTicks,numYTicks);
+            Axes axes = new Axes(numXTicks*2+2,numYTicks*2+2);
             DotsFunction dotsFunction = new DotsFunction(inputTable,newtonFunction);
 
 

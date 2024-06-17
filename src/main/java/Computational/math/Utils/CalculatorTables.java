@@ -17,7 +17,7 @@ public class CalculatorTables {
         ArrayList<Double> xArr = new ArrayList<>();
         ArrayList<Double> yArr = new ArrayList<>();
         for (int i = 0; i < amountOfPoints; i++) {
-            double x_i = a + (b - a) * i /amountOfPoints;
+            double x_i = a + (b - a) * i / amountOfPoints;
             xArr.add(x_i);
             yArr.add(f.apply(x_i));
         }

@@ -33,8 +33,6 @@ public class DotsFunction extends JComponent {
         // Получение всех значений из таблицы
         Double[] allX = inputTable.getxArr();
         Double[] startTableY = inputTable.getyArr();
-        System.out.println("Стартовая");
-        inputTable.printTable();
 
         // Установка цвета для точек и линий
         gr.setColor(Color.RED);
@@ -54,12 +52,9 @@ public class DotsFunction extends JComponent {
             gr.fill(new Ellipse2D.Double(xi - 2, yi - 2, 10, 10));
             gr.fill(new Ellipse2D.Double(xiFuture - 2, yiFuture - 2, 10, 10));
 
-            System.out.println(String.format("Отрисовка yi=%f, xi=%f", yi, xi));
         }
         //ньютоновская проходка(можно в принципе выше закинуть, но ЫЫЫ)
         var newtonY = newtonFunctionTable.getyArr();
-        System.out.println("Ньютоновская");
-        newtonFunctionTable.printTable();
         for (int i = 0; i < newtonFunctionTable.dimension() - 1; i++) {
             double xi = allX[i] * xTickSpacing + xCenter;
             double yi = yCenter - newtonY[i] * yTickSpacing;
@@ -75,7 +70,6 @@ public class DotsFunction extends JComponent {
             gr.fill(new Ellipse2D.Double(xi - 2, yi - 2, 4, 4));
             gr.fill(new Ellipse2D.Double(xiFuture - 2, yiFuture - 2, 4, 4));
 
-            System.out.println(String.format("Отрисовка yi=%f, xi=%f", yi, xi));
         }
 
         // Отрисовка последней точки

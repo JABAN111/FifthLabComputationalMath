@@ -30,16 +30,19 @@ public class Main {
                     continue;
                 }
                 switch (line){
-                    case "1" -> {continue;}
-                    case "2" -> {continue;}
+                    case "1" -> {}
+                    case "2" -> {}
                     case "3" -> {
                         var functionalTable = processingThirdVariant(input);
                         System.out.println("Введите искомый x");
                         printWaiting();
                         double xCurr = Double.parseDouble(input.readLine());
                         fb.executeEverything(functionalTable,xCurr);
+                        System.out.println("Закончили экзекуцию");
                     }
+                    default -> {}
                 }
+
             }
         } catch (IOException e) {
             System.err.println(STR."Ошибка чтения \{e.getMessage()}");
@@ -83,7 +86,6 @@ public class Main {
         System.out.println(STR."Конечные разности \{finiteDiff}");
         System.out.println("Ваша таблица");
         System.out.println(functionalTable);
-        System.out.println("Введите искомый ");
         return functionalTable;
     }
 
